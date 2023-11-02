@@ -29,6 +29,8 @@ export function Title(props) {
         <div className="info-text">
             <BackButton></BackButton>
             <h1>{location.state.title.original_title}</h1>
+            <h2>{details?.tagline}</h2>
+            <h2>{details?.vote_average}</h2>
             <p>{details?.overview}</p>
             <img src={posterURL}></img>
         </div>
