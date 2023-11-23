@@ -1,7 +1,19 @@
+const checkAuth = async () => {
+    if (!TMDB.isAuthorised) {
+        console.log('checkAuth getting key');
+        return TMDB.getAuth();
+    }
+    console.log('Auth ok');
+    return true;
+}
+
 
 const getResults = async (url, cacheID) => {
 
+
+
     if (cacheID && TMDB.cache[cacheID]) {
+
         return TMDB.cache[cacheID];
     }
 
@@ -24,6 +36,8 @@ const getResults = async (url, cacheID) => {
 }
 
 const getData = async (url, cacheID) => {
+
+    await checkAuth();
 
     if (cacheID && TMDB.cache[cacheID]) {
         return TMDB.cache[cacheID];
@@ -80,7 +94,7 @@ export const TMDB = {
     },
 
     getDetails: async (id) => {
-        return getData(`https://api.themoviedb.org/3/movie/507089?language=en-US`, `details_${id}`);
+        return getData(`https://api.themoviedb.org/3/movie/${id}?language=en-US`, `details_${id}`);
     }
 
 }

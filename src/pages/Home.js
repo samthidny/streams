@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { TMDB } from '../apis/TMDB';
 import { Hero } from '../components/Hero';
 import { Reel } from '../components/Reel';
+import { SearchBar } from '../components/search/SearchBar';
 
 
 export function Home(props) {
@@ -37,6 +38,7 @@ export function Home(props) {
 
     return <div>
         <Hero />
+        <SearchBar />
         <Reel title="Trending" titles={trending} />
         <Reel title="Popular" titles={popular} />
         <Reel title="Christmas" titles={titles} />
