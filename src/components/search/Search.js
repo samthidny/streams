@@ -3,7 +3,7 @@ import './Search.css';
 
 export function Search(props) {
 
-    const [search, setSearch] = useState('');
+    const [search, setSearch] = useState(props.value || '');
 
     function inputHandler(event) {
         setSearch(event.target.value);
@@ -16,7 +16,7 @@ export function Search(props) {
 
     return <div className="search">
         <label>Search</label>
-        <input type="text" onInput={inputHandler} value={search || props.value}></input>
+        <input type="text" onInput={inputHandler} value={search}></input>
         <button onClick={searchHandler}>Search</button>
     </div>
 

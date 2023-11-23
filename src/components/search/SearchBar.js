@@ -24,7 +24,6 @@ export function SearchBar() {
     }
 
     return <div>
-        <span>Search: {search}</span>
         <Search value={search} onSearch={searchHandler} onInput={inputHandler}></Search>
         {results.length > 0 ? <Reel title="Results" titles={results} /> : <span>No results found</span>}
     </div>
