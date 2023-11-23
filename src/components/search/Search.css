@@ -1,0 +1,26 @@
+.search {
+    display: flex;
+    gap: 1em;
+    margin: 0.2em;
+}
+
+.search label {
+    font-size: 1.6em;
+}
+
+.search input[type="text"] {
+    background-color: black;
+    color: white;
+    
+}
+
+.search button {
+    background: green;
+    border-radius: 0.5em;
+    border: none;
+    padding: 1em;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
