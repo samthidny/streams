@@ -14,10 +14,17 @@ export function Search(props) {
         props.onSearch && props.onSearch(search);
     }
 
+    function submitHandler(event) {
+        event.preventDefault();
+        searchHandler();
+    }
+
     return <div className="search">
-        <label>Search</label>
-        <input type="text" onInput={inputHandler} value={search}></input>
-        <button onClick={searchHandler}>Search</button>
+        <form onSubmit={submitHandler}>
+            <label htmlFor="search">Search</label>
+            <input id="search" type="text" onInput={inputHandler} value={search}></input>
+            <button type="submit"  onClick={searchHandler}>Search</button>
+        </form>
     </div>
 
 }
