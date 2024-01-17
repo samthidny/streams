@@ -4,6 +4,7 @@ import { Hero } from '../components/Hero';
 import { Reel } from '../components/Reel';
 import { SearchBar } from '../state-components/SearchBar';
 import { SearchResults } from '../state-components/SearchResults';
+import { supabase } from '../apis/supabase';
 
 
 export function Home(props) {
@@ -12,6 +13,22 @@ export function Home(props) {
     const [titles, setTitles] = useState([]);
     const [trending, setTrending] = useState([]);
     const [popular, setPopular] = useState([]);
+
+    async function login() {
+        const { data, error } = await supabase.auth.signInWithPassword({
+            email: 'test@test.com',
+            password: 'password',
+        });
+    }
+
+    useEffect(() => {
+
+        login();
+
+        return () => {
+            console.log('Destroy supabase function x')
+        }
+    }, [])
 
 
     useEffect(() => {
