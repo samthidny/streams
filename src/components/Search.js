@@ -19,8 +19,8 @@ export function Search(props) {
         searchHandler();
     }
 
-    return <div className="search">
-        <form onSubmit={submitHandler}>
+    return <div>
+        <form className="search" onSubmit={submitHandler}>
             <label htmlFor="search">Search</label>
             <input id="search" type="text" onInput={inputHandler} value={search}></input>
             <button type="submit"  onClick={searchHandler}>Search</button>

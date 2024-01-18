@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { TMDB } from "../apis/TMDB";
 import { useDispatch } from "react-redux";
 import useFavourites from "../hooks/useFavourites";
+import { LikeButton } from "../components/LikeButton";
 
 
 export function Title(props) {
@@ -52,6 +53,7 @@ export function Title(props) {
 
     return <div style={{ backgroundImage: `url(${backdropURL})` }}>
         <div className="info-text">
+            <LikeButton></LikeButton>
             <BackButton></BackButton>
             <button onClick={favouriteClickHandler}>ADD TO FAVOURITES ({favourites.length}) {isFavourite(details.id) ? 'Y' : 'N'}</button>
             <h1>{location.state.title.original_title}</h1>

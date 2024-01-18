@@ -26,19 +26,29 @@
     color: white;
 }
 
-/* .logo a:hover {
-    text-decoration: none;
-} */
-
 .menu {
+    margin: 1em;
     color: white;
     display: flex;
     justify-content: right;
     flex-grow: 1;
 }
 
-a {
+.menu ul {
+    display: flex;
+    gap: 1em;
+}
+
+.menu li {
+    display: block;
+    
+}
+
+.menu a {
+    font-size: 1.4em;
     color: white;
+    padding: 1em;
+    text-decoration: none;
 }
 
 a:hover {

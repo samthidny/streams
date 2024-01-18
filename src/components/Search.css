@@ -1,7 +1,13 @@
 .search {
+    padding: 1em;
+    background: gray;
+    width: 600px;
+    height: 3em;
+    border: 1px solid white;
+    border-radius: 1em;
     display: flex;
-    gap: 1em;
-    margin: 0.2em;
+    align-items: center;
+    gap: 2em;
 }
 
 .search label {
@@ -9,16 +15,16 @@
 }
 
 .search input[type="text"] {
-    background-color: black;
-    color: white;
-    
+    background-color: white;
+    border: 1px solid black;
+    height: 2em;
 }
 
 .search button {
     background: green;
     border-radius: 0.5em;
+    width: 6em;
     border: none;
-    padding: 1em;
     color: #ffffff;
     font-weight: bold;
     text-align: center;
