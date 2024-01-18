@@ -9,25 +9,11 @@
     border-bottom: 1px solid #333;
 }
 
-.navigation {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-bottom: 0.5em;
-    padding-left: 0.5em;
-}
-
-.navigation .line {
-    width: 24px;
-    height: 7px;
-    border-bottom: 2px solid green;
-}
-
 .logo {
-    width: 300px;
+    width: 200px;
     display: flex;
-    justify-content: center;
+    margin: 1em;
+    /* justify-content: center; */
     align-items: center;
     font-size: 2em;
     text-shadow: rgba(255, 255, 255, 1) 0px 0px 7px;
@@ -45,8 +31,20 @@
 } */
 
 .menu {
+    color: white;
     display: flex;
     justify-content: right;
     flex-grow: 1;
+}
 
+a {
+    color: white;
+}
+
+a:hover {
+    color: white;
+}
+
+a:visited {
+    color:white;
 }

@@ -14,21 +14,21 @@ export function Home(props) {
     const [trending, setTrending] = useState([]);
     const [popular, setPopular] = useState([]);
 
-    async function login() {
-        const { data, error } = await supabase.auth.signInWithPassword({
-            email: 'test@test.com',
-            password: 'password',
-        });
-    }
+    // async function login() {
+    //     const { data, error } = await supabase.auth.signInWithPassword({
+    //         email: 'test@test.com',
+    //         password: 'password',
+    //     });
+    // }
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        login();
+    //     login();
 
-        return () => {
-            console.log('Destroy supabase function x')
-        }
-    }, [])
+    //     return () => {
+    //         console.log('Destroy supabase function x')
+    //     }
+    // }, [])
 
 
     useEffect(() => {
