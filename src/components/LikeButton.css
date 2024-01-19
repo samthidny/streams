@@ -1,13 +1,13 @@
 .like-button button {
     background: none;
     border: none;
-    width: 3em;
-    height: 3em;
+    width: 2em;
+    height: 2em;
     padding: 0;
 }
 
 .like-button {
-    width: 3em;
+    width: 2em;
     cursor: pointer;
 }
 
