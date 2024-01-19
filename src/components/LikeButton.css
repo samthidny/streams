@@ -1,9 +1,17 @@
+.like-button button {
+    background: none;
+    border: none;
+    width: 3em;
+    height: 3em;
+    padding: 0;
+}
+
 .like-button {
-    width: 50px;
+    width: 3em;
+    cursor: pointer;
 }
 
 .selected svg {
     fill: red;
     transition: fill 0.2s ease-out;
 }
-
