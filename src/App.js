@@ -7,6 +7,9 @@ import { Routes, Route, Outlet, Link, createBrowserRouter, RouterProvider, creat
 import { Title } from './pages/Title';
 import { Provider } from 'react-redux'
 import Store from './redux/Store';
+import { Favourites } from './pages/Favourites';
+import Signin from './pages/Signin';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -23,10 +26,13 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="about/" element={<About />} />
+            <Route path="favourites/" element={<Favourites />} />
+            <Route path="signin/" element={<Signin />} />
             <Route path="title/" >
               <Route path=":titleID" element={<Title />} />
             </Route>
           </Routes>
+          <Footer/>
           {/* </BrowserRouter> */}
         </HashRouter>
 

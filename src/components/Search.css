@@ -1,26 +1,29 @@
 .search {
     display: flex;
+    align-items: center;
     gap: 1em;
-    margin: 0.2em;
 }
 
 .search label {
-    font-size: 1.6em;
+    font-size: 1.2em;
+    font-weight: bold;
 }
 
 .search input[type="text"] {
-    background-color: black;
-    color: white;
-    
+    background-color: white;
+    border: 1px solid black;
+    height: 2em;
 }
 
 .search button {
     background: green;
     border-radius: 0.5em;
+    width: 6em;
     border: none;
-    padding: 1em;
     color: #ffffff;
     font-weight: bold;
     text-align: center;
     cursor: pointer;
+    height: 2.4em;
+    padding: 0;
 }

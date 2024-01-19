@@ -8,7 +8,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
 
+.reel-card .image-container {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    border: 1px solid grey;
 }
 
 .reel-card .heading {
@@ -24,5 +30,5 @@
 
 .reel-card img {
     width: 100%;
-    border: 1px solid grey;
+    flex-grow: 1;
 }

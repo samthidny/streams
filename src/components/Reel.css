@@ -5,13 +5,13 @@
     gap: 0.5em;
 }
 
-.reel h2 {
-    /* font-size: 2em; */
-}
-
-.card-container {
+.reel .card-container {
     display: flex;
     gap: 1em;
     width: 100%;
     overflow-x: scroll;
+}
+
+.reel .reel-card-container {
+    display: flex;
 }

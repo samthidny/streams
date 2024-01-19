@@ -1,3 +1,15 @@
+.header {
+    display: flex;
+}
+
+.back-button {
+    flex-grow: 1;
+
+}
+
+.like-button {
+}
+
 .info-text {
     background-color: rgba(0,0,0,0.7);
     padding: 1em;

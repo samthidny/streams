@@ -1,11 +1,8 @@
 .App {
   display: flex;
   flex-direction: column;
-  /* width: 100%; */
   background-color: #222;
   color: white;
-  /* font-size: 12px; */
-
 
   /* Large devices (laptops/desktops, 992px and up) */
   @media only screen and (max-width: 992px) {
@@ -17,5 +14,12 @@
     font-size: 10px;
   }
 
+  @media only screen and (max-width: 500px) {
+    font-size: 9px;
+  }
+
+  @media only screen and (max-width: 300px) {
+    font-size: 8px;
+  }
 
 }
