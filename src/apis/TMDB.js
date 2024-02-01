@@ -95,6 +95,10 @@ export const TMDB = {
 
     getDetails: async (id) => {
         return getData(`https://api.themoviedb.org/3/movie/${id}?language=en-US`, `details_${id}`);
+    },
+
+    getVideos: async (id) => {
+        return getData(`https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`, `videos_${id}`);
     }
 
 }
