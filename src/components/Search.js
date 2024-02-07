@@ -6,8 +6,9 @@ export function Search(props) {
     const [search, setSearch] = useState(props.value || '');
 
     function inputHandler(event) {
+        console.log('inputHandler > ', event.target.value)
         setSearch(event.target.value);
-        props.onInput && props.onInput(search);
+        props.onInput && props.onInput(event.target.value);
     }
 
     function searchHandler() {
