@@ -1,8 +1,16 @@
+.favourites {
+
+}
+
 .favourites a {
     color: white;
-    text-decoration: none;
 }
 
 .favourites a:visited {
     color: white;
+}
+
+.favourites-list {
+    display: flex;
+    flex-wrap: wrap;
 }

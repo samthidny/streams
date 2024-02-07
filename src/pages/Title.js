@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { TMDB } from "../apis/TMDB";
 import useFavourites from "../hooks/useFavourites";
 import { LikeButton } from "../components/LikeButton";
+import { Videos } from "./Videos";
 
 
 export function Title(props) {
@@ -41,6 +42,10 @@ export function Title(props) {
         });
     }
 
+    if(!details.id) {
+        return <p>Loading</p>
+    }
+
     const posterURL = `https://image.tmdb.org/t/p/w300/${details.poster_path}`;
     const backdropURL = `https://image.tmdb.org/t/p/w1280/${details.backdrop_path}`;
 
@@ -54,12 +59,12 @@ export function Title(props) {
                     <LikeButton selected={isFavourite(details.id)} onClick={favouriteClickHandler}></LikeButton>
                 </div>
             </div>
-            {/* <button onClick={favouriteClickHandler}>ADD TO FAVOURITES ({favourites.length}) {isFavourite(details.id) ? 'Y' : 'N'}</button> */}
             <h1>{details.original_title}</h1>
             <h2>{details.tagline}</h2>
             <h2>{details.vote_average}</h2>
             <p>{details.overview}</p>
             <img src={posterURL}></img>
+            <Videos titleID={titleID} />
         </div>
     </div >
 

@@ -7,7 +7,7 @@ export function ReelCard(props) {
 
   return <div className="reel-card">
     <div className="image-container">
-      <Link to={`title/${props.title.id}`} state={{ title: props.title }}><img src={imageURL}></img></Link>
+      <Link to={`/title/${props.title.id}`} state={{ title: props.title }}><img src={imageURL}></img></Link>
     </div>
     <h3 className="heading">{props.title.original_title}</h3>
   </div>
