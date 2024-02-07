@@ -24,18 +24,20 @@ function App() {
         <HashRouter>
           {/* <BrowserRouter> */}
           <NavBar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="about/" element={<About />} />
-            <Route path="favourites/" element={<Favourites />} />
-            <Route path="signin/" element={<Signin />} />
-            <Route path="title/" >
-              <Route path=":titleID" element={<Title />} />
-            </Route>
-            <Route path="videos/" >
-              <Route path=":titleID" element={<Videos />} />
-            </Route>
-          </Routes>
+          <main className="contentContainer">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="about/" element={<About />} />
+              <Route path="favourites/" element={<Favourites />} />
+              <Route path="signin/" element={<Signin />} />
+              <Route path="title/" >
+                <Route path=":titleID" element={<Title />} />
+              </Route>
+              <Route path="videos/" >
+                <Route path=":titleID" element={<Videos />} />
+              </Route>
+            </Routes>
+          </main>
           <Footer/>
           {/* </BrowserRouter> */}
         </HashRouter>

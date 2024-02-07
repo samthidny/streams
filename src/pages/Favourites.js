@@ -13,18 +13,14 @@ export function Favourites(props) {
         removeFavourite({id});
     }
 
-    //<Link to={`title/${props.title.id}`} state={{ title: props.title }}>
-    const list = favourites.map((record, index) => <li key={index}><Link to={`/title/${record.id}`} state={{title: { title: record.title, id:record.id }}}>{record.title} - {record.id}</Link> - <button onClick={() => removeHandler(record.id)}>X</button></li>)
+    const list = favourites.map((record, index) => <li key={index}><Link to={`/title/${record.id}`}  state={{title: { title: record.title, id:record.id }}}>{record.title} - {record.id}</Link> - <button onClick={() => removeHandler(record.id)}>X</button></li>)
     
-    const cardList = favourites.map(record => ({ id: record.id, original_title: record.title})).map((record, index) => <li key={index}><ReelCardLoader title={record}></ReelCardLoader></li>)
-
-    
+    const cardList = favourites.map(record => ({ id: record.id, original_title: record.title})).map((record, index) => <div key={index}><ReelCardLoader title={record}></ReelCardLoader><button onClick={() => removeHandler(record.id)}>X</button></div>)
 
     return <div className="favourites">
-        
-        <ul>
+        <h1>Favourites</h1>
+        <div className="favourites-list">
             {cardList}
-        </ul>
-        <p>Favourites {favourites.length}</p>
+        </div>
     </div>
 }
