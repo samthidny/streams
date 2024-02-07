@@ -5,7 +5,7 @@ import { useState } from "react";
 export function LikeButton(props) {
 
     function clickHandler() {
-        props.onClick();
+        props.onClick && props.onClick();
     }
 
     const classes = `like-button ${props.selected ? 'selected' : ''}`;
