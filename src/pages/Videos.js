@@ -11,8 +11,6 @@ export function Videos(props) {
 
     useEffect(() => {
 
-
-
         TMDB.getVideos(titleID || props.titleID).then(videos => {
             return setVideos(videos)
         });
@@ -23,14 +21,7 @@ export function Videos(props) {
 
     }, [])
 
-    // const filteredVideos = videos?.results?.filter(video => video.site == 'YouTube');
-    // const videoID = filteredVideos.length ? filteredVideos[0]?.key : '';
-
-    //const videos = videos.results ? videos.results[0].key : ''
-
     const videoList = videos.results ? videos.results.map(video => <Youtube videoID={video.key} />).splice(0, 3) : [];
-
-
 
     return <div>
         <h1>VIDEOS</h1>
