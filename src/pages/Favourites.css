@@ -14,3 +14,10 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.favourites-remove-button {
+    border: none;
+    background: none;
+    color: white;
+    cursor: pointer;
+}

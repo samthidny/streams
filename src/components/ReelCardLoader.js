@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { TMDB } from '../apis/TMDB';
 import { ReelCard } from './ReelCard';
+import { LikeButton } from './LikeButton';
 
 export default function ReelCardLoader(props) {
 
@@ -20,9 +21,8 @@ export default function ReelCardLoader(props) {
 
 
   return (
-    <div>
-      <span>{props.title.id}</span>
+    <>
       <ReelCard title={details} />
-    </div>
+    </>
   )
 }
