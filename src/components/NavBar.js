@@ -1,6 +1,6 @@
 import useFavourites from '../hooks/useFavourites';
 import './NavBar.css';
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export function NavBar(props) {
 
@@ -10,10 +10,10 @@ export function NavBar(props) {
         <div className="logo logo-font"><Link to={''}>STREAMS+</Link></div>
         <div className="menu">
             <ul>
-                <li><Link to={'/'}>Home</Link></li>
-                <li><Link to={'about'}>About</Link></li>
-                <li><Link to={'favourites'}>Favourites ({favourites.length})</Link></li>
-                <li><Link to={'signin'}>Sign In</Link></li>
+                <li><NavLink to={'/'}>Home</NavLink></li>
+                <li><NavLink to={'about'}>About</NavLink></li>
+                <li><NavLink to={'favourites'}>Favourites ({favourites.length})</NavLink></li>
+                <li><NavLink to={'signin'}>Sign In</NavLink></li>
             </ul>
         </div>
     </header>

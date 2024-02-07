@@ -7,6 +7,8 @@
     border-bottom: 1px solid #444;
 }
 
+
+
 .logo {
     display: flex;
     margin: 1em;
@@ -56,6 +58,14 @@
 .menu a:hover {
     color: white;
 }
+
+.menu .active {
+    color: white;
+    font-weight: bold;
+    pointer-events: none;
+    text-decoration: underline;
+}
+
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (max-width: 500px) {
