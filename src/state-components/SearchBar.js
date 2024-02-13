@@ -4,6 +4,8 @@ import { TMDB } from "../apis/TMDB";
 import { useDispatch, useSelector } from "react-redux";
 import { autocompleteThunk, getSearchThunk, setResults, setSearch } from "../redux/SearchSlice";
 import { getFavouritesThunk } from "../redux/FavouritesSlice";
+import { useEffect, useState } from "react";
+import AutoComplete from "../components/AutoComplete";
 
 export function SearchBar() {
 
@@ -11,9 +13,26 @@ export function SearchBar() {
     const autocompleteItems = useSelector((state) => state.search.autoCompleteItems);
     const dispatch = useDispatch();
 
-    function inputHandler(search) {
-        console.log('inputHandler', search);
-        dispatch(setSearch(search));
+    // TODO - refactor into custom hook
+    const AUTOCOMPLETE_TIME = 1000;
+    useEffect(() => {
+
+        const interval = setTimeout(() => {
+            console.log('The final debounce value is', search);
+            autocompleteHandler();
+        }, AUTOCOMPLETE_TIME);
+
+        // destroy function
+        return () => {
+            clearInterval(interval);
+        }
+
+    }, [search]);
+
+
+    function inputHandler(str) {
+        console.log('inputHandler', str);
+        dispatch(setSearch(str));
     }
 
     async function searchHandler(search) {
@@ -29,14 +48,10 @@ export function SearchBar() {
 
     const autoCompletList = autocompleteItems.map(result => <li key={result.id}>{result.title}</li>)
 
-    return <div>
-        <span>Autocomplete Items {autocompleteItems.length}</span>
-        <Search value={search} onInput={inputHandler} onSearch={searchHandler} ></Search>
-        <button onClick={autocompleteHandler}>Autocomplete</button>
-        <ul>
-            {autoCompletList}
-        </ul>
-    </div>
+    return <search>
+        <p>Search: {search}</p>
+        <Search value={search} onInput={inputHandler} onSearch={searchHandler} autocompleteResults={autocompleteItems} ></Search>
+    </search>
 
 
 }

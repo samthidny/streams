@@ -35,8 +35,11 @@ export const SearchSlice = createSlice({
   extraReducers: (builder) => {
     // Add reducers for additional action types here, and handle loading state as needed
     builder.addCase(autocompleteThunk.fulfilled, (state, action) => {
+      
+      const sortField = 'vote_average'; //popularity
+      
       state.autoCompleteItems = action.payload.map(result => ({ id: result.id, title: result.title, result: result })).sort((a, b) => {
-        if (a.result.popularity < b.result.popularity) {
+        if (a.result[sortField] < b.result[sortField]) {
             return 1;
         } else {
             return -1;
