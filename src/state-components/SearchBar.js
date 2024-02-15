@@ -29,7 +29,6 @@ export function SearchBar() {
 
     }, [search]);
 
-
     function inputHandler(str) {
         console.log('inputHandler', str);
         dispatch(setSearch(str));
@@ -49,7 +48,6 @@ export function SearchBar() {
     const autoCompletList = autocompleteItems.map(result => <li key={result.id}>{result.title}</li>)
 
     return <search>
-        <p>Search: {search}</p>
         <Search value={search} onInput={inputHandler} onSearch={searchHandler} autocompleteResults={autocompleteItems} ></Search>
     </search>
 
