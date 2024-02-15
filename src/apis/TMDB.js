@@ -60,7 +60,7 @@ const getData = async (url, cacheID) => {
     }
 }
 
-
+// Temporarilly putting TOKEN in here for DEV only, will eventually be sent on sign in/authentication
 export const TMDB = {
     cache: {},
     authToken: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmM2RhN2MyNjg5MmE4NzcxNGFiNDQ5ZGY2OWQ1N2VhZiIsInN1YiI6IjY1MjkwODI3MGNiMzM1MTZmNzQ2OWFjNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.HFaCXwj5CcteLTsCUAhjcUrW15gEqXb_BdRmAjG3Dx8",

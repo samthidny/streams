@@ -14,6 +14,7 @@
     border: 1px solid black;
     height: 2em;
     padding: 1em 0.5em 1em 0.5em;
+    width: 100%;
 }
 
 .search button {
@@ -31,4 +32,6 @@
 
 .search-text-container {
     background-color: red;
+    flex-grow: 1;
+    max-width: 40em;
 }

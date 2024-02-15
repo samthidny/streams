@@ -51,7 +51,7 @@ export function Search(props) {
 
     return <div>
         <form className="search" onSubmit={submitHandler} onBlur={blurHandler}>
-            <label htmlFor="search">Search</label>
+            <label htmlFor="search">Search {showAutoComplete.toString()}</label>
             <div className="search-text-container">
                 <input id="search" type="search" onInput={inputHandler} value={search} onFocus={focusHandler} ></input>
                 {autoComplete}
