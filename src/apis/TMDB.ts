@@ -1,3 +1,5 @@
+import { ITitle } from "../data/ITitle";
+
 const checkAuth = async () => {
     if (!TMDB.isAuthorised) {
         console.log('checkAuth getting key');
@@ -8,13 +10,13 @@ const checkAuth = async () => {
 }
 
 
-const getResults = async (url, cacheID) => {
+const getResults = async (url: string, cacheID: string): Promise<ITitle[]> => {
 
 
 
     if (cacheID && TMDB.cache[cacheID]) {
 
-        return TMDB.cache[cacheID];
+        return TMDB.cache[cacheID] as ITitle[];
     }
 
     const options = {
@@ -29,13 +31,15 @@ const getResults = async (url, cacheID) => {
         const response = await fetch(url, options);
         const data = await response.json();
         TMDB.cache[cacheID] = data.results;
-        return data.results;
+        return data.results as ITitle[];
     } catch (error) {
         console.error(error);
     }
+
+    return [];
 }
 
-const getData = async (url, cacheID) => {
+const getData = async (url: string, cacheID: string) => {
 
     await checkAuth();
 
@@ -60,8 +64,21 @@ const getData = async (url, cacheID) => {
     }
 }
 
+interface ITMDB {
+    cache: any;
+    authToken: string;
+    isAuthorised: boolean;
+    getAuth: () => Promise<any>;
+    getTrending: () => Promise<ITitle[]>;
+    getPopular: () => Promise<ITitle[]>;
+    searchTitles: (query: string) => Promise<ITitle[]>;
+    getDetails: (id: number) => Promise<ITitle[]>;
+    getVideos: (id: number) => Promise<ITitle[]>;
+}
+
+
 // Temporarilly putting TOKEN in here for DEV only, will eventually be sent on sign in/authentication
-export const TMDB = {
+export const TMDB: ITMDB = {
     cache: {},
     authToken: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmM2RhN2MyNjg5MmE4NzcxNGFiNDQ5ZGY2OWQ1N2VhZiIsInN1YiI6IjY1MjkwODI3MGNiMzM1MTZmNzQ2OWFjNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.HFaCXwj5CcteLTsCUAhjcUrW15gEqXb_BdRmAjG3Dx8",
     isAuthorised: true,
@@ -80,17 +97,17 @@ export const TMDB = {
         }
     },
 
-    getTrending: async (query) => {
+    getTrending: async () => {
         return getResults(`https://api.themoviedb.org/3/trending/movie/day?language=en-US`, 'trending');
     },
 
-    getPopular: async (query) => {
+    getPopular: async () => {
         return getResults(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=1`, 'popular');
     },
 
-    searchTitles: async (query) => {
+    searchTitles: async (query: string) => {
         const results = await getResults(`https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1`, `title_${query}`);
-        return results.filter(title => title.poster_path !== null);
+        return results.filter((title: ITitle) => title.poster_path !== null);
     },
 
     getDetails: async (id) => {
