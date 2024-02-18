@@ -1,7 +1,7 @@
 import './Hero.css';
 import { SearchBar } from '../state-components/SearchBar';
 
-export function Hero(props) {
+export function Hero() {
 
     return <section className="hero">
         <h1>One Search, Endless Entertainment</h1>

@@ -1,9 +1,8 @@
 import './App.css';
-import ErrorPage from './ErrorPage';
 import { NavBar } from './components/NavBar';
 import { About } from './pages/About';
 import { Home } from './pages/Home';
-import { Routes, Route, Outlet, Link, createBrowserRouter, RouterProvider, createHashRouter, BrowserRouter, HashRouter } from "react-router-dom";
+import { Routes, Route, HashRouter } from "react-router-dom";
 import { Title } from './pages/Title';
 import { Provider } from 'react-redux'
 import Store from './redux/Store';
@@ -13,10 +12,6 @@ import Footer from './components/Footer';
 import { Videos } from './pages/Videos';
 
 function App() {
-
-  console.log('v 0.0.1');
-
-  //https://react-redux.js.org/tutorials/quick-start
 
   return (
     <div className="App">
@@ -38,13 +33,10 @@ function App() {
               </Route>
             </Routes>
           </main>
-          <Footer/>
+          <Footer />
           {/* </BrowserRouter> */}
         </HashRouter>
-
-        {/* <RouterProvider router={router} /> */}
       </Provider>
-
     </div>
   );
 }
