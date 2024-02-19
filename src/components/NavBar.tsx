@@ -2,7 +2,7 @@ import useFavourites from '../hooks/useFavourites';
 import './NavBar.css';
 import { Link, NavLink } from "react-router-dom";
 
-export function NavBar(props) {
+export function NavBar() {
 
     const [favourites] = useFavourites();
 

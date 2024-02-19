@@ -5,6 +5,10 @@ export interface ITitle {
     popularity: string,
     title: string,
     poster_path: string,
-    backdrop_path: string
+    backdrop_path: string,
+    tagline: string,
+    vote_average: string,
+    overview: string,
+    
 
 }

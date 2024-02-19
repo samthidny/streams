@@ -1,8 +1,11 @@
-import { useNavigate } from "react-router-dom"
 import './LikeButton.css';
-import { useState } from "react";
 
-export function LikeButton(props) {
+type LikeButtonProps = {
+        onClick: Function,
+        selected: boolean
+}
+
+export function LikeButton(props: LikeButtonProps) {
 
     function clickHandler() {
         props.onClick && props.onClick();

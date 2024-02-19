@@ -9,7 +9,6 @@ import Store from './redux/Store';
 import { Favourites } from './pages/Favourites';
 import Signin from './pages/Signin';
 import Footer from './components/Footer';
-import { Videos } from './pages/Videos';
 
 function App() {
 
@@ -28,9 +27,9 @@ function App() {
               <Route path="title/" >
                 <Route path=":titleID" element={<Title />} />
               </Route>
-              <Route path="videos/" >
+              {/* <Route path="videos/" >
                 <Route path=":titleID" element={<Videos />} />
-              </Route>
+              </Route> */}
             </Routes>
           </main>
           <Footer />

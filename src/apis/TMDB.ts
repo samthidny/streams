@@ -1,4 +1,6 @@
 import { ITitle } from "../data/ITitle";
+import IVideo from "../data/IVideo";
+import { IVideos } from "../data/IVideos";
 
 const checkAuth = async () => {
     if (!TMDB.isAuthorised) {
@@ -72,8 +74,8 @@ interface ITMDB {
     getTrending: () => Promise<ITitle[]>;
     getPopular: () => Promise<ITitle[]>;
     searchTitles: (query: string) => Promise<ITitle[]>;
-    getDetails: (id: number) => Promise<ITitle[]>;
-    getVideos: (id: number) => Promise<ITitle[]>;
+    getDetails: (id: string) => Promise<ITitle>;
+    getVideos: (id: string) => Promise<IVideos>;
 }
 
 

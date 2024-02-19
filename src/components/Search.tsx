@@ -1,8 +1,18 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import './Search.css';
 import AutoComplete from "./AutoComplete";
+import { ITitle } from "../data/ITitle";
 
-export function Search(props) {
+
+type SearchProps = {
+    value: string,
+    onInput: Function,
+    onSearch: Function,
+    autocompleteResults: ITitle[]
+}
+
+
+export function Search(props: SearchProps) {
 
     const [search, setSearch] = useState(props.value || '');
     const [showAutoComplete, setShowAutoComplete] = useState(false);
@@ -17,7 +27,7 @@ export function Search(props) {
 
     }, [showAutoComplete])
 
-    function inputHandler(event) {
+    function inputHandler(event: React.ChangeEvent<HTMLInputElement>) {
         console.log('inputHandler > ', event.target.value)
         setSearch(event.target.value);
         props.onInput && props.onInput(event.target.value);
@@ -27,7 +37,7 @@ export function Search(props) {
         props.onSearch && props.onSearch(search);
     }
 
-    function submitHandler(event) {
+    function submitHandler(event: React.FormEvent) {
         event.preventDefault();
         searchHandler();
     }
@@ -42,12 +52,12 @@ export function Search(props) {
         // TODO - this is a bad work around because Link action isnt being dispatched because focus lost
         setTimeout(() => {
             setShowAutoComplete(false);
-        }, 100);
-        
+        }, 1000);
+
     }
 
 
-    const autoComplete = showAutoComplete ? <AutoComplete results={props.autocompleteResults}></AutoComplete> : '';
+    const autoComplete: JSX.Element = showAutoComplete ? <><AutoComplete results={props.autocompleteResults}></AutoComplete></> : <></>;
 
     return <div>
         <form className="search" onSubmit={submitHandler} onBlur={blurHandler}>
@@ -56,7 +66,7 @@ export function Search(props) {
                 <input id="search" type="search" onInput={inputHandler} value={search} onFocus={focusHandler} ></input>
                 {autoComplete}
             </div>
-            <button type="submit"  onClick={searchHandler}>Search</button>
+            <button type="submit" onClick={searchHandler}>Search</button>
         </form>
     </div>
 

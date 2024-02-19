@@ -1,9 +1,12 @@
+import { ITitle } from '../data/ITitle';
 import './AutoCompleteItem.css'
-import React from 'react'
 import { Link } from 'react-router-dom';
 
+type AutoCompleteItemProps = {
+    result: ITitle
+}
 
-export default function AutoCompleteItem(props) {
+export default function AutoCompleteItem(props: AutoCompleteItemProps) {
 
     const result = props.result;
 
