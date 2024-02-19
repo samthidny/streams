@@ -19,16 +19,12 @@ export function Search(props: SearchProps) {
 
     useEffect(() => {
 
-        console.log('showAutoComplete', showAutoComplete);
-
         return () => {
-            console.log('showAutoComplete destroy');
         }
 
     }, [showAutoComplete])
 
     function inputHandler(event: React.ChangeEvent<HTMLInputElement>) {
-        console.log('inputHandler > ', event.target.value)
         setSearch(event.target.value);
         props.onInput && props.onInput(event.target.value);
     }
@@ -43,19 +39,16 @@ export function Search(props: SearchProps) {
     }
 
     function focusHandler() {
-        console.log('Search Focus');
         setShowAutoComplete(true);
     }
 
     function blurHandler() {
-        console.log('Search blur');
         // TODO - this is a bad work around because Link action isnt being dispatched because focus lost
         setTimeout(() => {
             setShowAutoComplete(false);
         }, 1000);
 
     }
-
 
     const autoComplete: JSX.Element = showAutoComplete ? <><AutoComplete results={props.autocompleteResults}></AutoComplete></> : <></>;
 

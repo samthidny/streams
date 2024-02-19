@@ -1,20 +1,15 @@
 import { ITitle } from "../data/ITitle";
 import IVideo from "../data/IVideo";
-import { IVideos } from "../data/IVideos";
 
 const checkAuth = async () => {
     if (!TMDB.isAuthorised) {
-        console.log('checkAuth getting key');
         return TMDB.getAuth();
     }
-    console.log('Auth ok');
     return true;
 }
 
 
 const getResults = async (url: string, cacheID: string): Promise<ITitle[]> => {
-
-
 
     if (cacheID && TMDB.cache[cacheID]) {
 
@@ -75,7 +70,7 @@ interface ITMDB {
     getPopular: () => Promise<ITitle[]>;
     searchTitles: (query: string) => Promise<ITitle[]>;
     getDetails: (id: string) => Promise<ITitle>;
-    getVideos: (id: string) => Promise<IVideos>;
+    getVideos: (id: string) => Promise<IVideo[]>;
 }
 
 
@@ -117,7 +112,10 @@ export const TMDB: ITMDB = {
     },
 
     getVideos: async (id) => {
-        return getData(`https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`, `videos_${id}`);
+        // return getData(`https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`, `videos_${id}`);
+
+        const data = await getData(`https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`, `videos_${id}`);
+        return data.results;
     }
 
 }

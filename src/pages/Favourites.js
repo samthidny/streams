@@ -7,11 +7,10 @@ export function Favourites(props) {
     const [favourites, addFavourite, removeFavourite] = useFavourites();
 
     function removeHandler(id) {
-        console.log('Remove ', id);
-        removeFavourite({id});
+        removeFavourite({ id });
     }
-    
-    const cardList = favourites.map(record => ({ id: record.id, original_title: record.title})).map((record, index) => <div key={index}><ReelCardLoader key={record.id} title={record}></ReelCardLoader><button className="favourites-remove-button" onClick={() => removeHandler(record.id)}>REMOVE</button></div>)
+
+    const cardList = favourites.map(record => ({ id: record.id, original_title: record.title })).map((record, index) => <div key={index}><ReelCardLoader key={record.id} title={record}></ReelCardLoader><button className="favourites-remove-button" onClick={() => removeHandler(record.id)}>REMOVE</button></div>)
 
     return <div className="favourites">
         <h1>Favourites</h1>

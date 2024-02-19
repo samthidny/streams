@@ -1,6 +1,6 @@
 export interface ITitle {
 
-    id: number,
+    id: string,
     original_title: string,
     popularity: string,
     title: string,
@@ -9,6 +9,6 @@ export interface ITitle {
     tagline: string,
     vote_average: string,
     overview: string,
-    
+
 
 }

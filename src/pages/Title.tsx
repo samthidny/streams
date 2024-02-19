@@ -23,7 +23,6 @@ export function Title() {
         }
 
         return () => {
-            console.log('Destroy function Title');
         }
 
     })
@@ -41,7 +40,7 @@ export function Title() {
         }
     }
 
-    const isFavourite = (id: number) => {
+    const isFavourite = (id: string) => {
         return !!favourites.find((title: ITitle) => {
             return title.id === id
         });
