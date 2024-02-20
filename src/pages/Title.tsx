@@ -28,7 +28,7 @@ export function Title() {
     })
 
     // Favourites Code here
-    const [favourites, addFavourite, removeFavourite] = useFavourites();
+    const { favourites, addFavourite, removeFavourite } = useFavourites();
 
     function favouriteClickHandler() {
         if (details) {

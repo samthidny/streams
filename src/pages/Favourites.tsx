@@ -5,7 +5,7 @@ import { ITitle } from '../data/ITitle';
 
 export function Favourites() {
 
-    const [favourites, removeFavourite] = useFavourites();
+    const { favourites, removeFavourite } = useFavourites();
 
     function removeHandler(id: string) {
         removeFavourite({ id });
