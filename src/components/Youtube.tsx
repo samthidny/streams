@@ -1,6 +1,10 @@
 import React from 'react'
 
-export default function Youtube(props) {
+type YouTubeProps = {
+  videoID: string
+}
+
+export default function Youtube(props: YouTubeProps) {
 
   const youtubeURL = `https://www.youtube.com/embed/${props.videoID}`;
 

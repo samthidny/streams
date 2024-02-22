@@ -13,10 +13,9 @@ export function Home() {
 
     useEffect(() => {
 
-        TMDB.getAuth().then((auth:any) => setAuthorised(true));
+        TMDB.getAuth().then((auth: any) => setAuthorised(true));
 
         return () => {
-            console.log('Destroy function x')
         }
     }, [])
 
@@ -24,12 +23,11 @@ export function Home() {
     useEffect(() => {
 
         if (authorised) {
-            TMDB.searchTitles('bear').then((titles:ITitle[]) => setTitles(titles));
-            TMDB.getTrending().then((titles:ITitle[]) => setTrending(titles));
-            TMDB.getPopular().then((titles:ITitle[]) => setPopular(titles));
+            TMDB.searchTitles('bear').then((titles: ITitle[]) => setTitles(titles));
+            TMDB.getTrending().then((titles: ITitle[]) => setTrending(titles));
+            TMDB.getPopular().then((titles: ITitle[]) => setPopular(titles));
         }
         return () => {
-            console.log('Destroy function y')
         }
 
     }, [authorised])

@@ -1,7 +1,12 @@
 import { Link } from 'react-router-dom';
 import './ReelCard.css';
+import { ITitle } from '../data/ITitle';
 
-export function ReelCard(props) {
+type ReelCardProps = {
+  title: ITitle
+}
+
+export function ReelCard(props: ReelCardProps) {
 
   const imageURL = `https://image.tmdb.org/t/p/w185/${props.title.poster_path}`;
 

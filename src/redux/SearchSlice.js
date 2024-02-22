@@ -22,13 +22,11 @@ export const SearchSlice = createSlice({
   },
   reducers: {
     setResults: (state, action) => {
-      console.log('Setting results in slice');
       state.searchResults = action.payload.results;
       state.lastSearch = action.payload.search;
       
     },
     setSearch: (state, action) => {
-      console.log('Setting search in slice');
       state.search = action.payload;
     }
   },

@@ -2,9 +2,9 @@ import useFavourites from '../hooks/useFavourites';
 import './NavBar.css';
 import { Link, NavLink } from "react-router-dom";
 
-export function NavBar(props) {
+export function NavBar() {
 
-    const [favourites] = useFavourites();
+    const { favourites } = useFavourites();
 
     return <header className="NavBar">
         <div className="logo logo-font"><Link to={''}>STREAMS+</Link></div>

@@ -1,10 +1,15 @@
 import { ReelCard } from "./ReelCard";
 import './Reel.css';
-import ReelCardLoader from "./ReelCardLoader";
+import { ITitle } from "../data/ITitle";
 
-export function Reel(props) {
+type ReelProps = {
+    title: string,
+    titles: ITitle[]
+}
 
-    const list = props.titles.map(title => <div className="reel-card-container" key={title.id}><ReelCard title={title} /></div>);
+export function Reel(props: ReelProps) {
+
+    const list = props.titles.map((title: ITitle) => <div className="reel-card-container" key={title.id}><ReelCard title={title} /></div>);
 
     const renderTitle = () => {
         return props.title ? <h2>{props.title}</h2> : '';

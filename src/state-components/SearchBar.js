@@ -18,7 +18,6 @@ export function SearchBar() {
     useEffect(() => {
 
         const interval = setTimeout(() => {
-            console.log('The final debounce value is', search);
             autocompleteHandler();
         }, AUTOCOMPLETE_TIME);
 
@@ -30,12 +29,10 @@ export function SearchBar() {
     }, [search]);
 
     function inputHandler(str) {
-        console.log('inputHandler', str);
         dispatch(setSearch(str));
     }
 
     async function searchHandler(search) {
-        console.log(`Submit search ${search}`);
         dispatch(setSearch(search));
         const results = await TMDB.searchTitles(search);
         dispatch(setResults({ search, results }));
@@ -44,8 +41,6 @@ export function SearchBar() {
     async function autocompleteHandler() {
         dispatch(autocompleteThunk({ search }));
     }
-
-    const autoCompletList = autocompleteItems.map(result => <li key={result.id}>{result.title}</li>)
 
     return <search>
         <Search value={search} onInput={inputHandler} onSearch={searchHandler} autocompleteResults={autocompleteItems} ></Search>

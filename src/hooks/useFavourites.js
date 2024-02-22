@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { addFavourite, addFavouriteThunk, getFavouritesThunk, removeFavouriteThunk } from '../redux/FavouritesSlice';
+import { addFavouriteThunk, getFavouritesThunk, removeFavouriteThunk } from '../redux/FavouritesSlice';
 import useUser from './useUser';
 
 
@@ -28,5 +28,5 @@ export default function useFavourites() {
         dispatch(removeFavouriteThunk({ id: details.id }));
     }
 
-    return [favourites, addFavourite, removeFavourite];
+    return { favourites, addFavourite, removeFavourite };
 }
