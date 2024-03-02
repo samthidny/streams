@@ -23,7 +23,7 @@ export function Home() {
     useEffect(() => {
 
         if (authorised) {
-            TMDB.searchTitles('bear').then((titles: ITitle[]) => setTitles(titles));
+            TMDB.searchTitles('christmas').then((titles: ITitle[]) => setTitles(titles));
             TMDB.getTrending().then((titles: ITitle[]) => setTrending(titles));
             TMDB.getPopular().then((titles: ITitle[]) => setPopular(titles));
         }

@@ -26,7 +26,7 @@ export function Videos(props: VideosProps) {
 
     const videoList = videos ? videos.map((video: IVideo) => <Youtube key={video.key} videoID={video.key} />).splice(0, 3): '';
 
-    return <div>
+    return <div className="videos">
         <h1>VIDEOS</h1>
         {videoList}
     </div>
